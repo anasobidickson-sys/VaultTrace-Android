@@ -1,0 +1,25 @@
+VAULTTRACE — BUILD APK WITHOUT ANDROID STUDIO
+
+This package uses GitHub Actions to compile the Android app in the cloud.
+You do not need Android Studio on your computer.
+
+1. Sign in to https://github.com/ or create a GitHub account.
+2. Create a NEW private repository named VaultTrace-Android.
+3. Upload the CONTENTS of this ZIP to the repository root. The repository root must contain:
+   - .github/workflows/android-apk.yml
+   - android/ (with app/, build.gradle.kts, settings.gradle.kts, etc.)
+4. Open the repository's Actions tab.
+5. Select "Build VaultTrace Android APK".
+6. Click "Run workflow" and confirm.
+7. Wait for the run to finish with a green check.
+8. Open the completed run. Under Artifacts, download "VaultTrace-debug-apk".
+9. Extract the downloaded artifact ZIP. It contains app-debug.apk.
+10. Transfer app-debug.apk to your Android phone and install it. Android may ask you to allow installation from that file source.
+
+IMPORTANT:
+- This is a debug/test APK, not a Play Store release.
+- The first cloud build may reveal additional Kotlin or Android build errors. If so, share the Actions error log so the source can be corrected.
+- The APK connects to the VaultTrace API URL embedded in MainActivity.kt.
+- The website's API token migration must already be installed and public_html/api.php must be deployed.
+- Do not upload website config/config.php, database credentials, passwords, API secrets, or private evidence to GitHub. This package contains ONLY the Android project and workflow.
+- Do not commit real user data or evidence files.
